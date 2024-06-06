@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAILearn</title>
+    <link rel="stylesheet" href="{% static 'app.css' %}">
+    <link rel="stylesheet" href="https://use.typekit.net/ouq2fal.css">
+</head>
+
+<body>
+
+    <header>
+
+      <div class="header-logo">
+        <span class="bold">SAI</span>Learning
+      </div>
+
+
+      <a class="header-dropdown" onclick="myFunctin()">
+        <span class="user-info">{{user.username}}<br>Nivel 2</span>
+        <img src="./assets/Asset 26@4x.png" class="profile-picture"">
+        <div class="dropdownLink" id="ddl">
+          <a>Perfil</a>
+          <a>Glosario</a>
+          <a>Cerrar Sesión</a>
+        </div>
+      </a>
+    </header>
+
+    <script>
+      let contador = 0;
+      function myFunctin(){
+        contador++
+        let Elemento = document.getElementById("ddl");
+        if(contador%2 == 0){
+          
+          console.log(Elemento);
+          Elemento.style.display = "none";
+        }
+        else {
+          Elemento.style.display = "block";
+        }
+        
+      }
+    </script>
+
+    <main>
+
+        <div class="horizontal-scroll-wrapper squares">
+        <a href="{% url 'levels:level' %}" class="active">1</a>
+        <a class="active">2</a>
+        <a class="active">3</a>
+        <a class="active">4</a>
+        <a class="active">5</a>
+        <a class="select">6</a>
+        <a>7</a>
+        <a>8</a>
+        <a>9</a>
+        <a>10</a>
+        <a>11</a>
+        <a>12</a>
+        <a>13</a>
+        <a>14</a>
+        <a>15</a>
+        <a>16</a>
+        <a>17</a>
+        <a>18</a>
+        <a>19</a>
+        <a>20</a>
+        <a>21</a>
+        <a>22</a>
+        <a>23</a>
+        <a>24</a>
+        <a>25</a>
+        <a>26</a>
+        <a>27</a>
+        <a>28</a>
+        <a>29</a>
+        <a>30</a>
+      </div>
+
+      <a class="btn-startLevel" href="https://google.com">
+        <span>¡Continúa aprendiendo!</span>
+      </a>
+    </main>
+      
+</body>
+</html>
