@@ -7,7 +7,7 @@ var contador = semaforos.length - 1;
 
 // Función para redirigir al siguiente nivel
 function goToNextLevel() {
-    window.location.href = "{% url 'actualizar_nivel' %}";
+    window.location.reload;
 }
 
 listaNiveles = [
