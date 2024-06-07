@@ -41,6 +41,11 @@ body{
     color: #1CA658;
     text-align: center;
     padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .banner h1{
@@ -54,8 +59,8 @@ button{
     border-style: solid;
     border-radius: 25px;
     background-color: #1CA658;
-    color: white;
-    width: 10%;
+    color: #F2F2DF;
+    width: 20%;
     height: 50px;
     font-size: 20px;
     cursor: pointer;
@@ -64,4 +69,37 @@ button:hover{
     border-color: #1d9b53;
     background-color: #1d9b53;
 
+}
+
+h2{
+    margin: 0 auto;
+    font-weight: 800;
+    color: #1CA658;
+    text-align: center;
+    margin: 30px auto;
+}
+
+main{
+    padding: 20px;
+}
+
+.testimonial{
+    background-color: #F2F2DF;
+
+    margin: 20px;
+    border-radius: 25px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    filter: drop-shadow(0 0 0.75rem gray)
+}
+
+.info{
+    background-color: #F2F2DF;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 20px;
 }
