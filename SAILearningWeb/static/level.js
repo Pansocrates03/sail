@@ -2,7 +2,14 @@ var video = document.querySelector("#videoElement");
 var canvas = document.querySelector("#canvas");
 var detectador = document.querySelector("#detectador");
 const semaforos = document.querySelectorAll('.semaforo');
-var contador = 0;
+var contador = semaforos.length - 1;
+var nextLevelUrl = "{% url 'level' perfil.nivel %}";  // Generar la URL base
+nextLevelUrl = nextLevelUrl.replace(perfil.nivel, perfil.nivel + 1); // Reemplazar con el siguiente nivel
+
+// Función para redirigir al siguiente nivel
+function goToNextLevel() {
+    window.location.href = nextLevelUrl;
+}
 
 listaNiveles = [
     ['A', 'A', 'A', 'A', 'A'],
@@ -60,17 +67,6 @@ function captureAndSendFrame() {
     }, 'image/png');
 }
 
-semaforos.forEach((semaforo, index) => {
-    console.log(`Elemento ${index}:`, semaforo);
-    
-    // Ejemplo: Cambiar el contenido de cada div
-    semaforo.textContent = `Semáforo ${index + 1} actualizado`;
-    
-    // Ejemplo: Cambiar el color de fondo de cada div
-    const colors = ['red', 'yellow', 'green', 'blue', 'purple'];
-    semaforo.style.backgroundColor = colors[index];
-});
-
 function sendFrame(blob) {
     var formData = new FormData();
     formData.append('file', blob, 'frame.png');
@@ -83,10 +79,14 @@ function sendFrame(blob) {
     .then(data => {
         console.log('Success:', data);
         detectador.innerHTML = 'Actualmente detectando: ' + data['letra'];
-        if (data['letra'] == 'A' && contador == 0){
-            contador++;
-
+        if (data['letra'] == 'A' && contador >= 0){
+            const semaforo = semaforos[contador]; 
+            semaforo.style.backgroundColor = 'green';
+            contador--;
         }
+        else if (contador === 0) {
+            goToNextLevel();
+        } 
     })
     .catch((error) => {
         console.error('Error:', error);

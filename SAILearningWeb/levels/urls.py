@@ -5,7 +5,6 @@ app_name = 'levels'
 
 urlpatterns = [
     path('', views.avance, name='avance'),
-    path('nivel/', views.nivel, name='level'),
+    path('nivel/<int:nivel>/', views.nivel, name='level'),
+    path('actualizar_nivel/', views.actualizar_nivel, name='actualizar_nivel'),
 ]
-
-# path('register/', views.register, name='register'),
