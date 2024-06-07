@@ -11,4 +11,5 @@ def avance(request):
 @login_required(login_url="/login/")
 def nivel(request):
     user = request.user
-    return render(request, 'levels/level.html', context={'user':user})
+    perfil = Perfil.objects.get(usuario=user)
+    return render(request, 'levels/level.html', context={'user':user, 'perfil':perfil})
