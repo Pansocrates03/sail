@@ -58,12 +58,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ORIGINS = ['127.0.0.1']
+CORS_ALLOW_ORIGINS = ['127.0.0.1', '*']
 
 
 ROOT_URLCONF = 'SAILearningWeb.urls'
 
-CSRF_TRUSTED_ORIGINS = ["https://8000-idx-sail-1717595766460.cluster-joak5ukfbnbyqspg4tewa33d24.cloudworkstations.dev"]
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000/",'http://127.0.0.1:8080/']
 
 
 TEMPLATES = [

@@ -18,7 +18,7 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect("home")  # Redirect to a 'home' page or another relevant page
+            return redirect("perfiles:home")  # Redirect to a 'home' page or another relevant page
         else:
             messages.error(request, 'Correo o contraseña no válidos. Vuelve a intentarlo.')
 
