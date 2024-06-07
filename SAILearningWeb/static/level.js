@@ -3,12 +3,11 @@ var canvas = document.querySelector("#canvas");
 var detectador = document.querySelector("#detectador");
 const semaforos = document.querySelectorAll('.semaforo');
 var contador = semaforos.length - 1;
-var nextLevelUrl = "{% url 'level' perfil.nivel %}";  // Generar la URL base
-nextLevelUrl = nextLevelUrl.replace(perfil.nivel, perfil.nivel + 1); // Reemplazar con el siguiente nivel
+
 
 // Función para redirigir al siguiente nivel
 function goToNextLevel() {
-    window.location.href = nextLevelUrl;
+    window.location.href = "{% url 'actualizar_nivel' %}";
 }
 
 listaNiveles = [

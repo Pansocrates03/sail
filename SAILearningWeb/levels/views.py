@@ -6,7 +6,15 @@ from perfiles.models import Perfil
 def avance(request):
     user = request.user
     perfil = Perfil.objects.get(usuario=user)
-    return render(request, 'levels/app.html', context={'user':user, 'perfil':perfil})
+    niveles = range(1, 31)  # Crea una lista de niveles del 1 al 30
+    nivel_actual = request.user.perfil.nivel  # Obtiene el nivel actual del usuario
+    context = {
+        'niveles': niveles,
+        'nivel_actual': nivel_actual,
+        'user':user, 
+        'perfil':perfil
+    }
+    return render(request, 'levels/app.html', context=context)
 
 
 @login_required
