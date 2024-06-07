@@ -31,8 +31,20 @@ def nivel(request, nivel):
     
     if perfil.nivel != nivel:
         actualizar_nivel()
-        
+
     return render(request, 'levels/level.html', {'nivel': nivel, 'user': user, 'perfil':perfil})
+
+
+
+@login_required(login_url="/login/")
+def nivel_2(request, nivel):
+    user = request.user
+    perfil = request.user.perfil
+
+    perfil.nivel += 1  # Incrementar el nivel del jugador
+    perfil.save()  # Guardar los cambios en la base de datos
+  
+    return render(request, 'levels/level_2.html', {'nivel': nivel, 'user': user, 'perfil':perfil})
 
 
 
