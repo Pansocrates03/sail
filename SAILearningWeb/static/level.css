@@ -47,6 +47,11 @@ main {
     background-color: #08AE63;
 }
 
+#videoElement {
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1); /* Para compatibilidad con navegadores webkit (Safari, etc.) */
+}
+
 
 .header-logo {
     font-size: 5vh;

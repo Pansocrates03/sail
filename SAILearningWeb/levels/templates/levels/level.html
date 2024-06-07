@@ -29,27 +29,28 @@
       </header>
     <main>
 
-        <div class="left-container">
-            <div class="muestra">Muestra la letra</div>
-            <img src="{% static '/images/letrasLSM/letra_a.png' %}" class="letras">
-        </div>
+            <div class="left-container">
+                <div class="muestra">Muestra la letra</div>
+                <img src="{% static '/images/letrasLSM/letra_a.png' %}" class="letras">
+            </div>
 
-        <div id="container">
-            <video autoplay="true" id="videoElement">
-                Your browser does not support the video tag.
-            </video>
-            <canvas id="canvas" style="display:none;"></canvas>
-        </div>
+            <div id="container">
+                <video autoplay="true" id="videoElement" style="transform: scaleX(-1)">
+                    Your browser does not support the video tag.
+                </video>
+                <canvas id="canvas" style="display:none;"></canvas>
+                <h3 id="detectador">Actualmente detectando: --</h3>
+            </div>
 
-        <div class="right-container">
-            <div class="semaforo"></div>
-            <div class="semaforo"></div> 
-            <div class="semaforo"></div> 
-            <div class="semaforo"></div>
-            <div class="semaforo"></div> 
-            <div class="semaforo"></div> 
-            <div class="semaforo"></div> 
-            <div class="semaforo"></div> 
+            <div class="right-container">
+                <div class="semaforo"></div>
+                <div class="semaforo"></div> 
+                <div class="semaforo"></div> 
+                <div class="semaforo"></div>
+                <div class="semaforo"></div> 
+                <div class="semaforo"></div> 
+                <div class="semaforo"></div> 
+                <div class="semaforo"></div> 
         </div>
 
     </main>
