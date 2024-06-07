@@ -100,6 +100,19 @@ main{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 20px;
+    padding: 5%;
     margin-top: 20px;
+    text-align: center;
+    border-radius: 30px;
+}
+.info > h2 {
+    font-size: 4vh;
+}
+.info > p {
+    font-size: 3vh;
+}
+
+footer {
+    background-color: #F2F2DF;
+    height: 2vh;
 }
