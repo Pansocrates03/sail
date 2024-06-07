@@ -12,4 +12,7 @@ def avance(request):
 def nivel(request):
     user = request.user
     perfil = Perfil.objects.get(usuario=user)
+
+
+    
     return render(request, 'levels/level.html', context={'user':user, 'perfil':perfil})
