@@ -17,7 +17,7 @@
         </div>
 
         <a class="header-dropdown" onclick="myFunctin()">
-            <span class="user-info">{{user.username}}<br>{{perfil.nivel}}</span>
+            <span class="user-info">{{user.username|title}}<br>Nivel {{perfil.nivel}}</span>
             <img href="{% static 'images/Asset 26@4x.png' %}" class="profile-picture">
             <div class="dropdownLink" id="ddl">
                 <a>Perfil</a>

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     # "daphne",
 
     #'rest_framework',
-    'corsheaders',
+    #'corsheaders',
     'perfiles',
     'levels',
     #'channels',
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    #'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
