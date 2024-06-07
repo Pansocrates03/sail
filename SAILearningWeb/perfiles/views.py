@@ -8,7 +8,7 @@ def home(request):
 
 def loginPage(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('perfiles:home')
 
     if request.method == 'POST':
         username = request.POST.get('username').lower()
@@ -24,9 +24,9 @@ def loginPage(request):
 
     return render(request, 'perfiles/login.html')
 
-def logoutUser(request):
-    logout(request)
-    return HttpResponse("Cerraste sesión")
+# def logoutUser(request):
+#     logout(request)
+#     return HttpResponse("Cerraste sesión")
 
 def register(request):
     if request.method == 'POST':
@@ -38,7 +38,7 @@ def register(request):
             user.save()
 
             login(request, user)
-            return HttpResponse('usuario registrado')  # Redirect to a home page or any other page
+            return redirect('perfiles:home') 
 
         else:
             messages.error(request, 'Error al crear la cuenta. Por favor, vuelve a intentarlo.')
