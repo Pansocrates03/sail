@@ -3,11 +3,12 @@ var canvas = document.querySelector("#canvas");
 var detectador = document.querySelector("#detectador");
 const semaforos = document.querySelectorAll('.semaforo');
 var contador = semaforos.length - 1;
-
+var nivel = document.querySelector("h1").textContent.split(" ")[1];
+var im = document.querySelector(".letras");
 
 // Función para redirigir al siguiente nivel
 function goToNextLevel() {
-    window.location.href = "{% url 'levesl:nivel2' 2 %}";
+    window.location.href = "http://127.0.0.1:8000/niveles/nivel/" + (parseInt(nivel) + 1) + "/";
 }
 
 listaNiveles = [
@@ -20,8 +21,6 @@ listaNiveles = [
     ['G', 'G', 'G', 'G', 'G'],
     ['H', 'H', 'H', 'H', 'H'],
     ['I', 'I', 'I', 'I', 'I'],
-    ['J', 'J', 'J', 'J', 'J'],
-    ['K', 'K', 'K', 'K', 'K'],
     ['L', 'L', 'L', 'L', 'L'],
     ['M', 'M', 'M', 'M', 'M'],
     ['N', 'N', 'N', 'N', 'N'],
@@ -34,10 +33,10 @@ listaNiveles = [
     ['U', 'U', 'U', 'U', 'U'],
     ['V', 'V', 'V', 'V', 'V'],
     ['W', 'W', 'W', 'W', 'W'],
-    ['X', 'X', 'X', 'X', 'X'],
-    ['Y', 'Y', 'Y', 'Y', 'Y'],
-    ['Z', 'Z', 'Z', 'Z', 'Z',]
+    ['Y', 'Y', 'Y', 'Y', 'Y']
 ]
+
+im.src = "/static/images/letrasLSM/letra_" + listaNiveles[nivel % 22][contador] + ".png";
  
 if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
@@ -78,13 +77,13 @@ function sendFrame(blob) {
     .then(data => {
         console.log('Success:', data);
         detectador.innerHTML = 'Actualmente detectando: ' + data['letra'];
-        if (data['letra'] == 'A' && contador >= 0){
+        if (data['letra'] == listaNiveles[nivel % 22][contador] && contador > 0){
             const semaforo = semaforos[contador]; 
             semaforo.style.backgroundColor = 'green';
             contador--;
+            im.src = "/static/images/letrasLSM/letra_" + listaNiveles[nivel % 22][contador] + ".png";
         }
-        else if (contador === 0) {
-            {{}}
+        else if (contador == 0) {
             goToNextLevel();
         } 
     })
