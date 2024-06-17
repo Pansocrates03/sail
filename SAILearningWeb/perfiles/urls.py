@@ -6,6 +6,6 @@ app_name = 'perfiles'
 urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.loginPage, name='login'),
-    # path('logout/', views.logoutUser, name='logout'),
-    path('', views.home, name='home')
+    path('', views.home, name='home'),
+    path('logout/', views.logout_view, name='logout'),
 ]

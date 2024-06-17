@@ -23,17 +23,18 @@ def avance(request):
 def nivel(request, nivel):
     user = request.user
     perfil = request.user.perfil
+    niveles = range(1, 61)  # Crea una lista de niveles del 1 al 60
+    nivel_actual = nivel
 
     def actualizar_nivel():
-        perfil.nivel += 1  # Incrementar el nivel del jugador
+        perfil.nivel = nivel  # Incrementar el nivel del jugador
         perfil.save()  # Guardar los cambios en la base de datos
         return redirect('levels:level', nivel=perfil.nivel)  # Redirigir a la vista del nuevo nivel
     
-    if perfil.nivel != nivel:
+    if perfil.nivel < nivel:
         actualizar_nivel()
 
-    return render(request, 'levels/level.html', {'nivel': nivel, 'user': user, 'perfil':perfil})
-
+    return render(request, 'levels/level.html', {'nivel_actual': nivel_actual, 'user': user, 'perfil':perfil, 'niveles':niveles})
 
 
 @login_required(login_url="/login/")

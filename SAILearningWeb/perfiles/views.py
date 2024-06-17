@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import UserRegistrationForm
+from django.contrib.auth import logout
 
 def home(request):  
     return render(request, 'perfiles/index.html')
@@ -49,3 +50,8 @@ def register(request):
         'user_form': user_form
     }
     return render(request, 'perfiles/register.html', context)
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('perfiles:home')  # Redirect to a 'home' page or another relevant page

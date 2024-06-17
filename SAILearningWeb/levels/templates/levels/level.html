@@ -16,15 +16,15 @@
             <span class="bold">SAI</span>Learning
         </div>
 
-        <h1>Nivel {{perfil.nivel}}</h1>
+        <h1>Nivel {{nivel_actual}}</h1>
 
         <a class="header-dropdown" onclick="myFunctin()">
             <span class="user-info">{{user.username|title}}<br>Nivel {{perfil.nivel}}</span>
             <img href="{% static 'images/Asset 26@4x.png' %}" class="profile-picture">
             <div class="dropdownLink" id="ddl">
-                <a>Perfil</a>
-                <a>Glosario</a>
-                <a>Cerrar Sesión</a>
+                <!-- <a>Perfil</a>
+                <a>Glosario</a> -->
+                <a class="dropdownLink-button" onclick="redirectLogout()">Cerrar sesión</a>
             </div>
         </a>
 

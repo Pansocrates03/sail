@@ -2,7 +2,7 @@ var video = document.querySelector("#videoElement");
 var canvas = document.querySelector("#canvas");
 var detectador = document.querySelector("#detectador");
 const semaforos = document.querySelectorAll('.semaforo');
-var contador = semaforos.length - 1;
+var contador = 4;
 var nivel = document.querySelector("h1").textContent.split(" ")[1];
 var im = document.querySelector(".letras");
 
@@ -74,7 +74,7 @@ listaNiveles = [
     ['S', 'Y', 'R', 'T', 'U']
 ]
 
-im.src = "/static/images/letrasLSM/letra_" + listaNiveles[nivel % 60][contador] + ".png";
+im.src = "/static/images/letrasLSM/letra_" + listaNiveles[(nivel % 60)][contador] + ".png";
  
 if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
@@ -87,6 +87,10 @@ if (navigator.mediaDevices.getUserMedia) {
             console.log("Something went wrong!");
         });
 }
+
+function redirectLogout() {
+    window.location.href = "http://127.0.0.1:8000/logout/";
+  }
 
 function startPulse() {
     // Llama a captureAndSendFrame cada 500 milisegundos
@@ -103,6 +107,7 @@ function captureAndSendFrame() {
     }, 'image/png');
 }
 
+
 function sendFrame(blob) {
     var formData = new FormData();
     formData.append('file', blob, 'frame.png');
@@ -115,11 +120,11 @@ function sendFrame(blob) {
     .then(data => {
         console.log('Success:', data);
         detectador.innerHTML = 'Actualmente detectando: ' + data['letra'];
-        if (data['letra'] == listaNiveles[nivel % 22][contador] && contador > 0){
+        if (data['letra'] == listaNiveles[(nivel % 60)][contador] && contador > 0){
             const semaforo = semaforos[contador]; 
             semaforo.style.backgroundColor = 'green';
             contador--;
-            im.src = "/static/images/letrasLSM/letra_" + listaNiveles[nivel % 22][contador] + ".png";
+            im.src = "/static/images/letrasLSM/letra_" + listaNiveles[(nivel % 60)][contador] + ".png";
         }
         else if (contador == 0) {
             goToNextLevel();
